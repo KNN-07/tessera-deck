@@ -26,6 +26,11 @@ pip install cadquery ezdxf
 python3 hardware/mech/make_drawings.py
 python3 hardware/electrical/netlist.py
 python3 hardware/case/case.py
+
+# PCBs: re-check the committed boards (needs KiCad 7 and numpy) ...
+python3 hardware/pcb/build_boards.py --check
+# ... or rebuild, re-route and re-export them, about 6 minutes
+python3 hardware/pcb/build_boards.py
 ```
 
 `tools/make_test_fixtures.py` regenerates `firmware/tests/jpeg_fixture.h`.

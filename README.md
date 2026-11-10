@@ -43,7 +43,7 @@ display module's ESP32-S3 runs the firmware and talks USB. Details:
 | `firmware/sim` | the same core as a PC program, for development without hardware | MIT |
 | `host/python` | `tessera` library and command-line tool | MIT |
 | `host/opendeck-plugin` | OpenDeck device plugin (Rust) | MIT |
-| `hardware` | case and keycap CAD, PCB outlines, placement, netlists, BOM | CERN-OHL-P-2.0 |
+| `hardware` | case and keycap CAD, routed PCBs with Gerbers, netlists, BOM | CERN-OHL-P-2.0 |
 | `docs` | [protocol](docs/protocol.md), [Stream Deck compatibility](docs/stream-deck-compatibility.md), [building](docs/building.md), [simulator](docs/simulator.md) | MIT |
 
 ## Status: design complete in simulation, not yet built
@@ -58,17 +58,19 @@ Be clear-eyed about this before ordering parts.
   simulator on the other, both directions.
 - Mechanics: interference checks between cover, tray, caps (at rest and
   pressed), PCB, switches and the display envelope; clearance asserts.
-- Electrical: netlists checked pin by pin against the firmware's pin map and
-  the placement files.
+- Electrical: both PCBs are routed and pass KiCad's design-rule check with no
+  violations and no unconnected pads; every pad is checked against the netlist,
+  and the netlist against the firmware's pin map.
+- ESP32-S3 firmware: compiles in CI (ESP-IDF v5.5).
 
 **Not yet done or not yet proven**
 
-- No deck has been built. The case has not been printed.
-- The ESP32-S3 port (`firmware/esp32s3`) has not been compiled or run on a
-  board; only the portable core is tested. CI builds it on every push, so the
-  first run will show any compile errors.
-- The two PCBs are not routed: outline, placement and netlist exist, copper
-  does not. See [hardware/README.md](hardware/README.md).
+- No deck has been built. The boards have not been fabricated and the case has
+  not been printed.
+- The ESP32-S3 firmware has not run on a board; only the portable core is
+  tested.
+- The PCB routing is machine-generated and unpolished (see
+  [hardware/README.md](hardware/README.md)).
 - The plugin has been tested against OpenDeck's protocol, not inside the
   OpenDeck application.
 - One mechanical assumption (where the pixel area sits inside the display
@@ -117,8 +119,8 @@ comparison, including the gaps, is in
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The most valuable things right now:
-routed PCBs, a first build with measurements, and a run of the ESP32-S3
-firmware on a real module.
+a first build with measurements, a run of the ESP32-S3 firmware on a real
+module, and a hand-tidied PCB layout.
 
 Tessera Deck is an independent project. "Stream Deck" and "Elgato" are
 trademarks of Corsair Memory, Inc., used here only to describe compatibility.

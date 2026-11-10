@@ -1,21 +1,21 @@
 ref,part,x_mm,y_mm,rotation_deg,note
 ENC0,"Alps EC11E series, 20 mm shaft, with push switch",15.50,11.00,0,dial 0
-RN5,4 x 10 k array 0603x4,25.00,5.00,90,"pull-ups A, B, push of dial 0"
-C2,10 nF 0603,25.00,13.00,90,dial 0 A filter
-C3,10 nF 0603,25.00,17.00,90,dial 0 B filter
 ENC1,"Alps EC11E series, 20 mm shaft, with push switch",42.50,11.00,0,dial 1
-RN6,4 x 10 k array 0603x4,52.00,5.00,90,"pull-ups A, B, push of dial 1"
-C4,10 nF 0603,52.00,13.00,90,dial 1 A filter
-C5,10 nF 0603,52.00,17.00,90,dial 1 B filter
 ENC2,"Alps EC11E series, 20 mm shaft, with push switch",69.50,11.00,0,dial 2
-RN7,4 x 10 k array 0603x4,79.00,5.00,90,"pull-ups A, B, push of dial 2"
-C6,10 nF 0603,79.00,13.00,90,dial 2 A filter
-C7,10 nF 0603,79.00,17.00,90,dial 2 B filter
 ENC3,"Alps EC11E series, 20 mm shaft, with push switch",96.50,11.00,0,dial 3
-RN8,4 x 10 k array 0603x4,106.00,5.00,90,"pull-ups A, B, push of dial 3"
-C8,10 nF 0603,106.00,13.00,90,dial 3 A filter
-C9,10 nF 0603,106.00,17.00,90,dial 3 B filter
-U2,TCA9539PWR (TSSOP-24),56.00,13.00,90,"I2C address 0x75: A0 = VCC, A1 = GND"
-C10,100 nF 0603,56.00,6.00,0,U2 decoupling
-J3,JST SM04B-SRSS-TB (Qwiic),5.00,11.00,90,I2C in
-J4,JST SM04B-SRSS-TB (Qwiic),107.00,11.00,270,I2C through
+RN5,4 x 10 k array 0603x4,26.50,4.00,90,"pull-ups A, B, push of dial 0"
+C2,10 nF 0603,26.50,11.00,90,dial 0 A filter
+C3,10 nF 0603,26.50,17.00,90,dial 0 B filter
+RN6,4 x 10 k array 0603x4,31.50,4.00,90,"pull-ups A, B, push of dial 1"
+C4,10 nF 0603,31.50,11.00,90,dial 1 A filter
+C5,10 nF 0603,31.50,17.00,90,dial 1 B filter
+RN7,4 x 10 k array 0603x4,80.50,4.00,90,"pull-ups A, B, push of dial 2"
+C6,10 nF 0603,80.50,11.00,90,dial 2 A filter
+C7,10 nF 0603,80.50,17.00,90,dial 2 B filter
+RN8,4 x 10 k array 0603x4,85.50,4.00,90,"pull-ups A, B, push of dial 3"
+C8,10 nF 0603,85.50,11.00,90,dial 3 A filter
+C9,10 nF 0603,85.50,17.00,90,dial 3 B filter
+U2,TCA9539PWR (TSSOP-24),56.00,11.00,90,"I2C address 0x75: A0 = VCC, A1 = GND"
+C10,100 nF 0603,56.00,4.50,0,U2 decoupling
+J3,JST SM04B-SRSS-TB (Qwiic),3.10,11.00,270,"I2C in, opening to the left edge"
+J4,JST SM04B-SRSS-TB (Qwiic),108.90,11.00,90,"I2C through, opening to the right edge"

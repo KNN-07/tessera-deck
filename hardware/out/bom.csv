@@ -7,8 +7,8 @@ both PCBs,2,capacitor 100 nF 16 V X7R 0603,any,C1 C10
 encoder PCB,8,capacitor 10 nF 50 V X7R 0603,any,C2 C3 C4 C5 C6 C7 C8 C9
 both PCBs,4,JST SH 4-pin side-entry header (Qwiic),JST SM04B-SRSS-TB,J1 J2 J3 J4
 encoder PCB,4,"rotary encoder with push switch, 20 mm D-shaft, 20 detents / 20 pulses",Alps Alpine EC11E15244G1 or Bourns PEC11R-4220F-S0024,ENC0 ENC1 ENC2 ENC3
-PCB,1,"key frame board, 2 layers, 1.0 mm, black solder mask","125.7 x 58.2 mm, 15 routed windows",outline: key-frame-pcb.dxf
-PCB,1,"encoder board, 2 layers, 1.6 mm",112 x 22 mm,outline: encoder-pcb.dxf
+PCB,1,"key frame board, 2 layers, 1.0 mm, black solder mask","125.7 x 58.2 mm, 15 routed windows","hardware/pcb/fab/key-frame-gerbers.zip; 0.15 mm tracks, 0.2 mm clearance, 0.6/0.3 mm vias"
+PCB,1,"encoder board, 2 layers, 1.6 mm",112 x 22 mm,hardware/pcb/fab/encoder-gerbers.zip; same rules
 cables,2,"Qwiic / STEMMA QT cable, JST SH to JST SH",50 mm and 100 mm,"key frame to encoder board, spare"
 cables,1,JST SH 4-pin to bare wires,100 mm,to the display board's I2C header: check its pin order against the silkscreen
 printed,15,keycap,keycap.stl - clear resin (SLA) or machined acrylic,polish top and bottom faces

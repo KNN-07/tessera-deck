@@ -62,12 +62,7 @@ def cover():
         part = part.cut(box(cx - h, cy - h, cx + h, cy + h, c.Z_COVER_UNDERSIDE - 1, c.Z_COVER_TOP + 1))
 
     # posts that press the frame PCB onto the lens
-    posts = list(c.hold_down_posts())
-    web_ys = sorted({y for _, y in posts})
-    for y in web_ys:
-        posts += [(c.FRAME_X0 + 2.5, y), (c.FRAME_X1 - 2.5, y)]
-    posts += [(c.FRAME_X0 + 3, c.FRAME_Y0 + 3), (c.FRAME_X1 - 3, c.FRAME_Y0 + 3)]
-    for x, y in posts:
+    for x, y in c.all_hold_down_posts():
         part = part.union(cyl(x, y, c.HOLD_DOWN_POST_D, c.Z_PCB_TOP, c.Z_COVER_UNDERSIDE + 0.1))
 
     # cable channel from the Qwiic connectors (top-right of the frame PCB) down into the tray

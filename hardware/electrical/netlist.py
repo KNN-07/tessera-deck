@@ -244,9 +244,9 @@ def bom(boards):
 
     add("PCB", 1, "key frame board, 2 layers, 1.0 mm, black solder mask",
         f"{g.FRAME_X1 - g.FRAME_X0:.1f} x {g.FRAME_Y1 - g.FRAME_Y0:.1f} mm, 15 routed windows",
-        "outline: key-frame-pcb.dxf")
+        "hardware/pcb/fab/key-frame-gerbers.zip; 0.15 mm tracks, 0.2 mm clearance, 0.6/0.3 mm vias")
     add("PCB", 1, "encoder board, 2 layers, 1.6 mm", f"{g.ENC_BOARD_W:.0f} x {g.ENC_BOARD_H:.0f} mm",
-        "outline: encoder-pcb.dxf")
+        "hardware/pcb/fab/encoder-gerbers.zip; same rules")
     add("cables", 2, "Qwiic / STEMMA QT cable, JST SH to JST SH", "50 mm and 100 mm", "key frame to encoder board, spare")
     add("cables", 1, "JST SH 4-pin to bare wires", "100 mm",
         "to the display board's I2C header: check its pin order against the silkscreen")

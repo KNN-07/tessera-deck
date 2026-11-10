@@ -1,0 +1,123 @@
+** Drc report for key-frame.kicad_pcb **
+
+** Found 38 DRC violations **
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(71.6500 mm, 33.1500 mm): Footprint SW7R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(93.2500 mm, 16.4100 mm): Footprint SW3R
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(62.8500 mm, 4.8500 mm): Footprint RN3
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(84.4500 mm, 4.8500 mm): Footprint RN4
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(97.2500 mm, 33.1500 mm): Footprint SW9L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(114.8500 mm, 16.4100 mm): Footprint SW4R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(28.4500 mm, 49.8900 mm): Footprint SW10R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(97.2500 mm, 16.4100 mm): Footprint SW4L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(50.0500 mm, 33.1500 mm): Footprint SW6R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(93.2500 mm, 33.1500 mm): Footprint SW8R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(28.4500 mm, 33.1500 mm): Footprint SW5R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(75.6500 mm, 16.4100 mm): Footprint SW3L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(75.6500 mm, 33.1500 mm): Footprint SW8L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(114.8500 mm, 33.1500 mm): Footprint SW9R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(71.6500 mm, 49.8900 mm): Footprint SW12R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(71.6500 mm, 16.4100 mm): Footprint SW2R
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(41.2500 mm, 4.8500 mm): Footprint RN2
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(32.4500 mm, 49.8900 mm): Footprint SW11L
+[lib_footprint_issues]: The current configuration does not include the library 'Package_SO'.
+    Local override; Severity: warning
+    @(4.6000 mm, 16.4000 mm): Footprint U1
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(32.4500 mm, 33.1500 mm): Footprint SW6L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(54.0500 mm, 49.8900 mm): Footprint SW12L
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(19.6500 mm, 4.8500 mm): Footprint RN1
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(54.0500 mm, 33.1500 mm): Footprint SW7L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(75.6500 mm, 49.8900 mm): Footprint SW13L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(97.2500 mm, 49.8900 mm): Footprint SW14L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(10.8500 mm, 49.8900 mm): Footprint SW10L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(28.4500 mm, 16.4100 mm): Footprint SW0R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(10.8500 mm, 33.1500 mm): Footprint SW5L
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(4.6000 mm, 9.9000 mm): Footprint C1
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(54.0500 mm, 16.4100 mm): Footprint SW2L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(10.8500 mm, 16.4100 mm): Footprint SW0L
+[lib_footprint_issues]: The current configuration does not include the library 'Connector_JST'.
+    Local override; Severity: warning
+    @(99.7000 mm, 3.2000 mm): Footprint J1
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(50.0500 mm, 49.8900 mm): Footprint SW11R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(114.8500 mm, 49.8900 mm): Footprint SW14R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(32.4500 mm, 16.4100 mm): Footprint SW1L
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(50.0500 mm, 16.4100 mm): Footprint SW1R
+[lib_footprint_issues]: The current configuration does not include the library 'Button_Switch_SMD'.
+    Local override; Severity: warning
+    @(93.2500 mm, 49.8900 mm): Footprint SW13R
+[lib_footprint_issues]: The current configuration does not include the library 'Connector_JST'.
+    Local override; Severity: warning
+    @(109.7000 mm, 3.2000 mm): Footprint J2
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

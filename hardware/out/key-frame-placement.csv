@@ -29,11 +29,11 @@ SW13L,C&K PTS810 SJM 250 SMTR LFS,75.65,49.89,90,"key 13, left"
 SW13R,C&K PTS810 SJM 250 SMTR LFS,93.25,49.89,90,"key 13, right"
 SW14L,C&K PTS810 SJM 250 SMTR LFS,97.25,49.89,90,"key 14, left"
 SW14R,C&K PTS810 SJM 250 SMTR LFS,114.85,49.89,90,"key 14, right"
-U1,TCA9539PWR (TSSOP-24),62.85,4.85,0,I2C address 0x74: A0 = A1 = GND
-C1,100 nF 0603,55.35,7.05,90,U1 decoupling
-RN1,4 x 10 k array 0603x4,44.85,4.85,0,pull-ups keys 0-3
-RN2,4 x 10 k array 0603x4,50.85,4.85,0,pull-ups keys 4-7
-RN3,4 x 10 k array 0603x4,74.85,4.85,0,pull-ups keys 8-11
-RN4,4 x 10 k array 0603x4,80.85,4.85,0,"pull-ups keys 12-14, RESET"
+C1,100 nF 0603,4.60,9.90,0,U1 decoupling
+U1,TCA9539PWR (TSSOP-24),4.60,16.40,90,I2C address 0x74: A0 = A1 = GND
+RN1,4 x 10 k array 0603x4,19.65,4.85,0,pull-ups keys 0-3
+RN2,4 x 10 k array 0603x4,41.25,4.85,0,pull-ups keys 4-7
+RN3,4 x 10 k array 0603x4,62.85,4.85,0,pull-ups keys 8-11
+RN4,4 x 10 k array 0603x4,84.45,4.85,0,"pull-ups keys 12-14, RESET"
 J1,JST SM04B-SRSS-TB (Qwiic),99.70,3.20,180,"I2C in, opening to the top edge"
 J2,JST SM04B-SRSS-TB (Qwiic),109.70,3.20,180,I2C out to the encoder board

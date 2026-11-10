@@ -12,6 +12,9 @@ Outputs (hardware/out/):
 
 DXF and CSV coordinates are board-local: origin at the board's top-left corner
 seen from the component side, x right, y DOWN (flip y if your tool has y up).
+Positions are part centres (for an encoder: the shaft axis). Rotations are
+KiCad's: degrees counter-clockwise seen from the component side, applied to
+the KiCad library footprint named in hardware/pcb/build_boards.py.
 """
 import csv
 import pathlib
@@ -72,17 +75,23 @@ def key_frame():
     for i, (x, y) in enumerate(g.hold_down_posts()):
         msp.add_circle((x - ox, -(y - oy)), g.HOLD_DOWN_POST_D / 2 + 0.3, dxfattribs={"layer": "KEEPOUT"})
 
-    # electronics in the strip of board above the top row
-    top_free = g.key_center(0)[1] - g.CUTOUT / 2 - oy  # y of the first cut-out edge, board-local
-    mid = top_free / 2
-    cx = w / 2
+    # The port expander stands in the free margin left of the first key column, where
+    # its pins can fan out upwards and downwards; the strip above the top row is too
+    # shallow for that. The pull-up arrays sit in that strip, each above a window so
+    # that the bars between the windows stay free for tracks running down to the keys.
+    # The connectors are top right, next to the cover's cable channel.
+    mx = 4.6
+    strip_y = (g.key_center(0)[1] - g.CUTOUT / 2 - oy) / 2
+
+    def above(col):
+        return g.key_center(col)[0] - ox
     for ref, part, x, y, rot, note, size in (
-        ("U1", "TCA9539PWR (TSSOP-24)", cx, mid, 0, "I2C address 0x74: A0 = A1 = GND", (7.8, 6.4)),
-        ("C1", "100 nF 0603", cx - 7.5, mid + 2.2, 90, "U1 decoupling", (0.8, 1.6)),
-        ("RN1", "4 x 10 k array 0603x4", cx - 18, mid, 0, "pull-ups keys 0-3", (3.2, 1.6)),
-        ("RN2", "4 x 10 k array 0603x4", cx - 12, mid, 0, "pull-ups keys 4-7", (3.2, 1.6)),
-        ("RN3", "4 x 10 k array 0603x4", cx + 12, mid, 0, "pull-ups keys 8-11", (3.2, 1.6)),
-        ("RN4", "4 x 10 k array 0603x4", cx + 18, mid, 0, "pull-ups keys 12-14, RESET", (3.2, 1.6)),
+        ("C1", "100 nF 0603", mx, 9.9, 0, "U1 decoupling", (1.6, 0.8)),
+        ("U1", "TCA9539PWR (TSSOP-24)", mx, 16.4, 90, "I2C address 0x74: A0 = A1 = GND", (7.8, 6.4)),
+        ("RN1", "4 x 10 k array 0603x4", above(0), strip_y, 0, "pull-ups keys 0-3", (3.2, 3.2)),
+        ("RN2", "4 x 10 k array 0603x4", above(1), strip_y, 0, "pull-ups keys 4-7", (3.2, 3.2)),
+        ("RN3", "4 x 10 k array 0603x4", above(2), strip_y, 0, "pull-ups keys 8-11", (3.2, 3.2)),
+        ("RN4", "4 x 10 k array 0603x4", above(3), strip_y, 0, "pull-ups keys 12-14, RESET", (3.2, 3.2)),
         ("J1", "JST SM04B-SRSS-TB (Qwiic)", w - 26, 3.2, 180, "I2C in, opening to the top edge", (6.0, 4.3)),
         ("J2", "JST SM04B-SRSS-TB (Qwiic)", w - 16, 3.2, 180, "I2C out to the encoder board", (6.0, 4.3)),
     ):
@@ -102,20 +111,31 @@ def encoder_board():
     doc, msp = new_doc()
     rounded_rect(msp, 0, 0, w, h, 1.5, "OUTLINE")
     parts = []
-    for i, x in enumerate(g.ENC_X):
-        ex, ey = x - ox, g.ENC_Y - oy
+    enc = [(x - ox, g.ENC_Y - oy) for x in g.ENC_X]
+    for i, (ex, ey) in enumerate(enc):
         rect(msp, ex, ey, 12.4, 13.2, "PARTS")
         msp.add_circle((ex, -ey), g.ENC_BUSHING_D / 2, dxfattribs={"layer": "PARTS"})
         parts.append((f"ENC{i}", "Alps EC11E series, 20 mm shaft, with push switch", ex, ey, 0, f"dial {i}"))
-        parts.append((f"RN{5 + i}", "4 x 10 k array 0603x4", ex + 9.5, ey - 6, 90, f"pull-ups A, B, push of dial {i}"))
-        parts.append((f"C{2 + 2 * i}", "10 nF 0603", ex + 9.5, ey + 2, 90, f"dial {i} A filter"))
-        parts.append((f"C{3 + 2 * i}", "10 nF 0603", ex + 9.5, ey + 6, 90, f"dial {i} B filter"))
-    mid = (g.ENC_X[1] + g.ENC_X[2]) / 2 - ox
+
+    def gap(a, b):
+        return (enc[a][0] + enc[b][0]) / 2
+
+    # The passives of two dials share the gap between them, in two columns.
+    # U2 sits alone in the middle gap.
+    for i, col_x in ((0, gap(0, 1) - 2.5), (1, gap(0, 1) + 2.5), (2, gap(2, 3) - 2.5), (3, gap(2, 3) + 2.5)):
+        for ref, part, y, note, size in (
+            (f"RN{5 + i}", "4 x 10 k array 0603x4", 4.0, f"pull-ups A, B, push of dial {i}", (3.2, 3.2)),
+            (f"C{2 + 2 * i}", "10 nF 0603", 11.0, f"dial {i} A filter", (0.8, 1.6)),
+            (f"C{3 + 2 * i}", "10 nF 0603", 17.0, f"dial {i} B filter", (0.8, 1.6)),
+        ):
+            rect(msp, col_x, y, *size, "PARTS")
+            parts.append((ref, part, col_x, y, 90, note))
+    mid = gap(1, 2)
     for ref, part, x, y, rot, note, size in (
-        ("U2", "TCA9539PWR (TSSOP-24)", mid, h / 2 + 2, 90, "I2C address 0x75: A0 = VCC, A1 = GND", (6.4, 7.8)),
-        ("C10", "100 nF 0603", mid, h / 2 - 5, 0, "U2 decoupling", (1.6, 0.8)),
-        ("J3", "JST SM04B-SRSS-TB (Qwiic)", 5.0, h / 2, 90, "I2C in", (4.3, 6.0)),
-        ("J4", "JST SM04B-SRSS-TB (Qwiic)", w - 5.0, h / 2, 270, "I2C through", (4.3, 6.0)),
+        ("U2", "TCA9539PWR (TSSOP-24)", mid, h / 2, 90, "I2C address 0x75: A0 = VCC, A1 = GND", (6.4, 7.8)),
+        ("C10", "100 nF 0603", mid, 4.5, 0, "U2 decoupling", (1.6, 0.8)),
+        ("J3", "JST SM04B-SRSS-TB (Qwiic)", 3.1, h / 2, 270, "I2C in, opening to the left edge", (4.3, 6.0)),
+        ("J4", "JST SM04B-SRSS-TB (Qwiic)", w - 3.1, h / 2, 90, "I2C through, opening to the right edge", (4.3, 6.0)),
     ):
         rect(msp, x, y, *size, "PARTS")
         parts.append((ref, part, x, y, rot, note))

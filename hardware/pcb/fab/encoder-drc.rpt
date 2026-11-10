@@ -1,0 +1,69 @@
+** Drc report for encoder.kicad_pcb **
+
+** Found 20 DRC violations **
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(80.5000 mm, 11.0000 mm): Footprint C6
+[lib_footprint_issues]: The current configuration does not include the library 'Package_SO'.
+    Local override; Severity: warning
+    @(56.0000 mm, 11.0000 mm): Footprint U2
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(31.5000 mm, 17.0000 mm): Footprint C5
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(85.5000 mm, 11.0000 mm): Footprint C8
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(80.5000 mm, 17.0000 mm): Footprint C7
+[lib_footprint_issues]: The current configuration does not include the library 'Rotary_Encoder'.
+    Local override; Severity: warning
+    @(89.0000 mm, 8.5000 mm): Footprint ENC3
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(26.5000 mm, 4.0000 mm): Footprint RN5
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(26.5000 mm, 17.0000 mm): Footprint C3
+[lib_footprint_issues]: The current configuration does not include the library 'Connector_JST'.
+    Local override; Severity: warning
+    @(108.9000 mm, 11.0000 mm): Footprint J4
+[lib_footprint_issues]: The current configuration does not include the library 'Rotary_Encoder'.
+    Local override; Severity: warning
+    @(8.0000 mm, 8.5000 mm): Footprint ENC0
+[lib_footprint_issues]: The current configuration does not include the library 'Connector_JST'.
+    Local override; Severity: warning
+    @(3.1000 mm, 11.0000 mm): Footprint J3
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(31.5000 mm, 11.0000 mm): Footprint C4
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(26.5000 mm, 11.0000 mm): Footprint C2
+[lib_footprint_issues]: The current configuration does not include the library 'Rotary_Encoder'.
+    Local override; Severity: warning
+    @(62.0000 mm, 8.5000 mm): Footprint ENC2
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(85.5000 mm, 4.0000 mm): Footprint RN8
+[lib_footprint_issues]: The current configuration does not include the library 'Rotary_Encoder'.
+    Local override; Severity: warning
+    @(35.0000 mm, 8.5000 mm): Footprint ENC1
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(80.5000 mm, 4.0000 mm): Footprint RN7
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(85.5000 mm, 17.0000 mm): Footprint C9
+[lib_footprint_issues]: The current configuration does not include the library 'Capacitor_SMD'.
+    Local override; Severity: warning
+    @(56.0000 mm, 4.5000 mm): Footprint C10
+[lib_footprint_issues]: The current configuration does not include the library 'Resistor_SMD'.
+    Local override; Severity: warning
+    @(31.5000 mm, 4.0000 mm): Footprint RN6
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

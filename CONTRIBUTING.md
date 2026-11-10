@@ -14,7 +14,7 @@ the README under "Status".
   bumps the major version.
 - **Run the checks** before sending a pull request (see `docs/building.md`).
   CI runs the same ones.
-- **Generated hardware files** in `hardware/out` are committed so people can
+- **Generated hardware files** in `hardware/out` and `hardware/pcb` are committed so people can
   fetch STLs without installing CadQuery. Regenerate them when you change a
   generator, and commit both.
 - Firmware core code is C11, no dynamic allocation, no hardware includes, and

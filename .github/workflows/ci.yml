@@ -44,6 +44,11 @@ jobs:
           python3 hardware/mech/make_drawings.py
           python3 hardware/electrical/netlist.py
           python3 hardware/case/case.py
+      - name: PCBs match the netlist and pass KiCad DRC
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends kicad python3-numpy
+          /usr/bin/python3 hardware/pcb/build_boards.py --check
 
   esp32s3:
     runs-on: ubuntu-24.04

@@ -97,6 +97,14 @@ def hold_down_posts():
     return pts
 
 
+
+def all_hold_down_posts():
+    """The posts between the keys plus those along the two sides and in the top corners."""
+    posts = hold_down_posts()
+    for y in sorted({y for _, y in posts}):
+        posts += [(FRAME_X0 + 2.5, y), (FRAME_X1 - 2.5, y)]
+    return posts + [(FRAME_X0 + 3, FRAME_Y0 + 3), (FRAME_X1 - 3, FRAME_Y0 + 3)]
+
 # ---- encoder board -----------------------------------------------------------
 ENC_Y = LENS_H + 13.5
 ENC_X = [px_x(100 + 200 * i) for i in range(ENCODERS)]   # centred under the strip segments
