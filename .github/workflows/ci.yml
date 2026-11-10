@@ -1,0 +1,66 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  host:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y ninja-build
+      - name: Firmware core, simulator, unit tests
+        run: |
+          cmake -S firmware -B firmware/build -G Ninja
+          cmake --build firmware/build
+          firmware/build/test_core
+      - name: Unit tests under ASan and UBSan
+        run: |
+          cmake -S firmware -B firmware/build-asan -G Ninja -DTESSERA_SANITIZE=ON
+          cmake --build firmware/build-asan
+          firmware/build-asan/test_core
+      - name: Python library against the simulator
+        run: |
+          pip install -e "host/python[dev]"
+          pytest host/python
+      - name: OpenDeck plugin
+        run: |
+          cargo test --release --manifest-path host/opendeck-plugin/Cargo.toml
+          cargo build --release --manifest-path host/opendeck-plugin/Cargo.toml
+          pip install websockets
+          pytest host/opendeck-plugin/tests
+
+  hardware:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install cadquery ezdxf pillow matplotlib
+      - name: Regenerate drawings, netlists and CAD; run fit checks
+        run: |
+          python3 hardware/mech/make_drawings.py
+          python3 hardware/electrical/netlist.py
+          python3 hardware/case/case.py
+
+  esp32s3:
+    runs-on: ubuntu-24.04
+    container: espressif/idf:release-v5.5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the ESP32-S3 firmware
+        shell: bash
+        run: |
+          . $IDF_PATH/export.sh
+          cd firmware/esp32s3
+          idf.py set-target esp32s3
+          idf.py build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tessera-deck-esp32s3
+          path: |
+            firmware/esp32s3/build/tessera_deck.bin
+            firmware/esp32s3/build/bootloader/bootloader.bin
+            firmware/esp32s3/build/partition_table/partition-table.bin

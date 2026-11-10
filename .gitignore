@@ -1,0 +1,11 @@
+build/
+build-*/
+target/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+sim-state/
+sdkconfig
+sdkconfig.old
+managed_components/
+dependencies.lock

@@ -1,0 +1,22 @@
+[package]
+name = "opendeck-tessera"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "OpenDeck device plugin for the Tessera Deck"
+
+[dependencies]
+openaction = "2.8"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time"] }
+# default features off: no libudev build dependency on Linux
+serialport = { version = "4.7", default-features = false }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp", "gif", "webp"] }
+base64 = "0.22"
+crc32fast = "1"
+log = "0.4"
+simplelog = "0.12"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+strip = true

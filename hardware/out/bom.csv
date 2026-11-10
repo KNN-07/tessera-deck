@@ -1,0 +1,22 @@
+section,qty,item,part number / spec,refs / notes
+module,1,5 inch 800 x 480 capacitive touch display with ESP32-S3,"Waveshare ESP32-S3-Touch-LCD-5 (the 800 x 480 version, not the 1024 x 600 'B')","ESP32-S3-WROOM-1-N16R8, GT911 touch, USB-C"
+key frame PCB,30,"tact switch 4.2 x 3.2 x 2.5 mm, 2.5 N",C&K PTS810 SJM 250 SMTR LFS,SW0L SW1L SW2L SW3L SW4L SW5L SW6L SW7L SW8L SW9L SW10L SW11L SW12L SW13L SW14L SW0R SW1R SW2R SW3R SW4R SW5R SW6R SW7R SW8R SW9R SW10R SW11R SW12R SW13R SW14R
+both PCBs,2,"16-bit I2C port expander, TSSOP-24",TI TCA9539PWR,U1 U2
+both PCBs,8,"resistor array 4 x 10 k, isolated, 1206 (4 x 0603)",e.g. Yageo YC164-JR-0710KL,RN1 RN2 RN3 RN4 RN5 RN6 RN7 RN8
+both PCBs,2,capacitor 100 nF 16 V X7R 0603,any,C1 C10
+encoder PCB,8,capacitor 10 nF 50 V X7R 0603,any,C2 C3 C4 C5 C6 C7 C8 C9
+both PCBs,4,JST SH 4-pin side-entry header (Qwiic),JST SM04B-SRSS-TB,J1 J2 J3 J4
+encoder PCB,4,"rotary encoder with push switch, 20 mm D-shaft, 20 detents / 20 pulses",Alps Alpine EC11E15244G1 or Bourns PEC11R-4220F-S0024,ENC0 ENC1 ENC2 ENC3
+PCB,1,"key frame board, 2 layers, 1.0 mm, black solder mask","125.7 x 58.2 mm, 15 routed windows",outline: key-frame-pcb.dxf
+PCB,1,"encoder board, 2 layers, 1.6 mm",112 x 22 mm,outline: encoder-pcb.dxf
+cables,2,"Qwiic / STEMMA QT cable, JST SH to JST SH",50 mm and 100 mm,"key frame to encoder board, spare"
+cables,1,JST SH 4-pin to bare wires,100 mm,to the display board's I2C header: check its pin order against the silkscreen
+printed,15,keycap,keycap.stl - clear resin (SLA) or machined acrylic,polish top and bottom faces
+printed,1,cover,"cover.stl - PETG or ASA, 0.2 mm layers",printed top face down
+printed,1,tray,"tray.stl - PETG or ASA, 0.2 mm layers",
+hardware,4,"knob for 6 mm D-shaft, 15-20 mm diameter",any,
+hardware,4,"M3 heat-set insert, 4.0 mm hole, up to 5.7 mm long",e.g. Ruthex RX-M3x5.7,tray corner posts
+hardware,2,M3 x 12 socket head cap screw,ISO 4762,rear cover screws (recessed)
+hardware,2,M3 x 8 button head screw,ISO 7380,front cover screws
+hardware,4,M2.5 x 6 pan head screw,ISO 7045,"display board standoffs, from below"
+hardware,4,"self-adhesive rubber foot, 8-10 mm",any,

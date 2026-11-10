@@ -1,0 +1,19 @@
+{
+  "Name": "Tessera Deck",
+  "Description": "Device support for the Tessera Deck open-hardware macro deck",
+  "Author": "Tessera Deck contributors",
+  "Version": "0.1.0",
+  "PluginUUID": "org.tessera-deck.opendeck",
+  "CodePathLin": "opendeck-tessera-linux",
+  "CodePathMac": "opendeck-tessera-mac",
+  "CodePathWin": "opendeck-tessera-win.exe",
+  "Icon": "assets/icon",
+  "Category": "Hardware",
+  "OS": [
+    { "Platform": "linux" },
+    { "Platform": "mac", "MinimumVersion": "11.3" },
+    { "Platform": "windows", "MinimumVersion": "10" }
+  ],
+  "Actions": [],
+  "DeviceNamespace": "td"
+}
